@@ -20,6 +20,7 @@ jobs:
       - run: docker build -t anderluuna/mysql-restapi-users:${{github.sha}} .
       - run: docker images
 
+
       - name: doccker login
         env:
          DOCKER_USER: ${{secrets.DOCKER_USER}}
