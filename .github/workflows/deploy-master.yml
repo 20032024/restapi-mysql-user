@@ -15,7 +15,7 @@ jobs:
       - run: echo 'hello world ...'
       - run: ls -la
       - run: touch .env
-      - run: echo 'DEV_DATABASE_URL=${{secrets.MYSQL_CONN}}' >> .env
+      - run: echo 'DEV_DATABASE_URL=${{secrets.PG_CONN}}' >> .env
       - run: cat .env
       - run: docker build -t anderluuna/mysql-restapi-users:${{github.sha}} .
       - run: docker images
@@ -29,7 +29,3 @@ jobs:
 
       - name: docker push
         run: docker push ${{ secrets.DOCKER_USER}}/mysql-restapi-users:${{github.sha}}   
-             
-      
-      #- run: docker build -t Mr-Arzi/mysql-restapi .
-      #- run: docker images
